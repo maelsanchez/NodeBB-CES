@@ -9,7 +9,7 @@ define('admin/plugins/ces', ['settings'], function(Settings) {
 	ACP.init = function() {
 		wrapper = $('.shoutbox-settings');
 
-		Settings.sync('shoutbox', wrapper);
+		Settings.sync('ces', wrapper);
 
 		$('#save').on('click', function() {
 			save();
@@ -19,16 +19,16 @@ define('admin/plugins/ces', ['settings'], function(Settings) {
 	};
 
 	function save() {
-		Settings.persist('shoutbox', wrapper, function() {
-			socket.emit('admin.plugins.shoutbox.sync');
+		Settings.persist('ces', wrapper, function() {
+			socket.emit('admin.plugins.ces.sync');
 		});
 	}
 
 	function prepareButtons() {
-		$('#shoutbox-remove-deleted-button').off('click').on('click', function(e) {
+		$('#ces-remove-deleted-button').off('click').on('click', function(e) {
 			bootbox.confirm('Are you sure you wish to remove all shouts marked as deleted from the database?', function(confirm) {
 				if (confirm) {
-					socket.emit('plugins.shoutbox.removeAll', {'which':'deleted'}, function(err, result) {
+					socket.emit('plugins.ces.removeAll', {'which':'deleted'}, function(err, result) {
 						if(err) {
 							return app.alertError(err.message);
 						} else {
@@ -39,10 +39,10 @@ define('admin/plugins/ces', ['settings'], function(Settings) {
 			});
 		});
 
-		$('#shoutbox-remove-all-button').off('click').on('click', function(e) {
+		$('#ces-remove-all-button').off('click').on('click', function(e) {
 			bootbox.confirm('Are you sure you wish to remove all shouts from the database?', function(confirm) {
 				if (confirm) {
-					socket.emit('plugins.shoutbox.removeAll', {'which':'all'}, function(err, result) {
+					socket.emit('plugins.ces.removeAll', {'which':'all'}, function(err, result) {
 						if(err) {
 							return app.alertError(err.message);
 						} else {

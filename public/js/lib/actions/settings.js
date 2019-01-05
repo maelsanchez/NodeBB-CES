@@ -1,16 +1,16 @@
 "use strict";
 
-(function(Shoutbox) {
+(function(Ces) {
 	var Settings = function(sbInstance) {
 		this.register = function() {
 			sbInstance.dom.container
-				.off('click', '.shoutbox-settings-menu a')
-				.on('click', '.shoutbox-settings-menu a', handle);
+				.off('click', '.ces-settings-menu a')
+				.on('click', '.ces-settings-menu a', handle);
 		};
 
 		function handle() {
 			var el = $(this),
-				key = el.data('shoutbox-setting'),
+				key = el.data('ces-setting'),
 				statusEl = el.find('span'),
 				status = statusEl.hasClass('fa-check');
 
@@ -28,5 +28,5 @@
 		}
 	};
 
-	Shoutbox.actions.register('settings', Settings);
-})(window.Shoutbox);
+	Ces.actions.register('settings', Settings);
+})(window.Ces);

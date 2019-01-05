@@ -1,7 +1,7 @@
 "use strict";
 /*global templates, Mentions, emojiExtended*/
 
-(function(Shoutbox) {
+(function(Ces) {
 	var Instance = function(container, options) {
 		var self = this;
 
@@ -32,11 +32,11 @@
 	};
 
 	function setupDependencies() {
-		this.utils = Shoutbox.utils.init(this);
-		this.sockets = Shoutbox.sockets.init(this);
-		this.settings = Shoutbox.settings.init(this);
-		this.actions = Shoutbox.actions.init(this);
-		this.commands = Shoutbox.commands.init(this);
+		this.utils = Ces.utils.init(this);
+		this.sockets = Ces.sockets.init(this);
+		this.settings = Ces.settings.init(this);
+		this.actions = Ces.actions.init(this);
+		this.commands = Ces.commands.init(this);
 	}
 
 	Instance.prototype.addShouts = function(shouts) {
@@ -73,8 +73,8 @@
 			}
 
 			// Extra classes
-			el.typeClasses = el.isOwn ? "shoutbox-shout-self " : "";
-			el.typeClasses += el.user.isAdmin ? "shoutbox-shout-admin " : "";
+			el.typeClasses = el.isOwn ? "ces-shout-self " : "";
+			el.typeClasses += el.user.isAdmin ? "ces-shout-admin " : "";
 
 			lastUid = uid;
 			lastSid = sid;
@@ -85,7 +85,7 @@
 		this.vars.lastUid = lastUid;
 		this.vars.lastSid = lastSid;
 
-		templates.parse('shoutbox/shouts', {
+		templates.parse('ces/shouts', {
 			shouts: shouts
 		}, function(html) {
 			self.dom.shoutsContainer.append(html);
@@ -96,7 +96,7 @@
 				// Get all the user elements that belong to the sids that need their timestamp updated
 				var userElements = $('[data-sid]').filter(function() {
 					return timeStampUpdates[$(this).data('sid')] !== undefined;
-				}).prevUntil('.shoutbox-avatar', '.shoutbox-user');
+				}).prevUntil('.ces-avatar', '.ces-user');
 
 				var i = 0;
 				for (var sid in timeStampUpdates) {
@@ -127,13 +127,13 @@
 		};
 
 		var setStatus = function(uid, status) {
-			self.dom.shoutsContainer.find('[data-uid="' + uid + '"].shoutbox-avatar').removeClass().addClass('shoutbox-avatar ' + status);
+			self.dom.shoutsContainer.find('[data-uid="' + uid + '"].ces-avatar').removeClass().addClass('ces-avatar ' + status);
 		};
 
 		if (!uid) {
 			uid = [];
 
-			self.dom.shoutsContainer.find('[data-uid].shoutbox-avatar').each(function(index, el){
+			self.dom.shoutsContainer.find('[data-uid].ces-avatar').each(function(index, el){
 				uid.push($(el).data('uid'))
 			});
 
@@ -195,13 +195,13 @@
 
 		this.dom = {};
 		this.dom.container = container;
-		this.dom.overlay = container.find('.shoutbox-content-overlay');
-		this.dom.overlayMessage = this.dom.overlay.find('.shoutbox-content-overlay-message');
-		this.dom.shoutsContainer = container.find('.shoutbox-content');
-		this.dom.settingsMenu = container.find('.shoutbox-settings-menu');
-		this.dom.textInput = container.find('.shoutbox-message-input');
-		this.dom.sendButton = container.find('.shoutbox-message-send-btn');
-		this.dom.onlineUsers = container.parents('.shoutbox-row').find('.shoutbox-users');
+		this.dom.overlay = container.find('.ces-content-overlay');
+		this.dom.overlayMessage = this.dom.overlay.find('.ces-content-overlay-message');
+		this.dom.shoutsContainer = container.find('.ces-content');
+		this.dom.settingsMenu = container.find('.ces-settings-menu');
+		this.dom.textInput = container.find('.ces-message-input');
+		this.dom.sendButton = container.find('.ces-message-send-btn');
+		this.dom.onlineUsers = container.parents('.ces-row').find('.ces-users');
 
 		if (this.options.showUserPanel) {
 			this.showUserPanel();
@@ -216,17 +216,17 @@
 			scrollBreakpoint: 50,
 			messages: {
 				alert: '[ %u ] - new shout!',
-				empty: 'The shoutbox is empty, start shouting!',
-				scrolled: '<a href="#" id="shoutbox-content-overlay-scrolldown">Scroll down</a>'
+				empty: 'The chat is empty, start shouting!',
+				scrolled: '<a href="#" id="ces-content-overlay-scrolldown">Scroll down</a>'
 			},
 			userCheck: 0
 		};
 	}
 
-	Shoutbox.base = {
+	Ces.base = {
 		init: function(container, options) {
 			return new Instance(container, options);
 		}
 	};
 
-})(window.Shoutbox);
+})(window.Ces);

@@ -1,7 +1,7 @@
 "use strict";
 /* global app */
 
-(function(Shoutbox) {
+(function(Ces) {
 	var sounds = null;
 
 	var Utils = function(instance) {
@@ -30,7 +30,7 @@
 				self.playSound(sound);
 			});
 		} else {
-			sounds.playFile('shoutbox-' + sound + '.mp3');
+			sounds.playFile('ces-' + sound + '.mp3');
 		}
 	};
 
@@ -64,12 +64,12 @@
 		}
 	}
 
-	Shoutbox.utils = {
+	Ces.utils = {
 		init: function(instance) {
 			return new Utils(instance);
 		},
 		getScrollHeight: getScrollHeight
 	}
 
-})(window.Shoutbox);
+})(window.Ces);
 

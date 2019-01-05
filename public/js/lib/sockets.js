@@ -1,29 +1,29 @@
 "use strict";
 /*global socket*/
 
-(function(Shoutbox) {
+(function(Ces) {
 
 	var Messages = {
-		getShouts: 'plugins.shoutbox.get',
-		sendShout: 'plugins.shoutbox.send',
-		removeShout : 'plugins.shoutbox.remove',
-		editShout: 'plugins.shoutbox.edit',
-		notifyStartTyping: 'plugins.shoutbox.startTyping',
-		notifyStopTyping: 'plugins.shoutbox.stopTyping',
-		getOriginalShout: 'plugins.shoutbox.getPlain',
-		saveSettings: 'plugins.shoutbox.saveSetting',
-		getSettings: 'plugins.shoutbox.getSettings',
+		getShouts: 'plugins.ces.get',
+		sendShout: 'plugins.ces.send',
+		removeShout : 'plugins.ces.remove',
+		editShout: 'plugins.ces.edit',
+		notifyStartTyping: 'plugins.ces.startTyping',
+		notifyStopTyping: 'plugins.ces.stopTyping',
+		getOriginalShout: 'plugins.ces.getPlain',
+		saveSettings: 'plugins.ces.saveSetting',
+		getSettings: 'plugins.ces.getSettings',
 		getUsers: 'user.loadMore',
 		getUserStatus: 'user.checkStatus'
 	};
 
 	var Events = {
 		onUserStatusChange: 'event:user_status_change',
-		onReceive: 'event:shoutbox.receive',
-		onDelete: 'event:shoutbox.delete',
-		onEdit: 'event:shoutbox.edit',
-		onStartTyping: 'event:shoutbox.startTyping',
-		onStopTyping: 'event:shoutbox.stopTyping'
+		onReceive: 'event:ces.receive',
+		onDelete: 'event:ces.delete',
+		onEdit: 'event:ces.edit',
+		onStartTyping: 'event:ces.startTyping',
+		onStopTyping: 'event:ces.stopTyping'
 	};
 
 	var Handlers = {
@@ -60,10 +60,10 @@
 				var shout = $('[data-sid="' + data.sid + '"]'),
 					uid = shout.data('uid'),
 
-					prevUser = shout.prev('[data-uid].shoutbox-user'),
+					prevUser = shout.prev('[data-uid].ces-user'),
 					prevUserUid = parseInt(prevUser.data('uid'), 10),
 
-					nextShout = shout.next('[data-uid].shoutbox-shout'),
+					nextShout = shout.next('[data-uid].ces-shout'),
 					nextShoutUid = parseInt(nextShout.data('uid'), 10),
 
 					prevUserIsSelf = prevUser.length > 0 && prevUserUid === parseInt(uid, 10),
@@ -74,7 +74,7 @@
 				}
 
 				if (prevUserIsSelf && !nextShoutIsSelf) {
-					prevUser.prev('.shoutbox-avatar').remove();
+					prevUser.prev('.ces-avatar').remove();
 					prevUser.remove();
 
 					var lastShout = sbInstance.dom.shoutsContainer.find('[data-sid]:last');
@@ -92,17 +92,17 @@
 				}
 			},
 			onEdit: function(data) {
-				$('[data-sid="' + data[0].sid + '"] .shoutbox-shout-text')
-					.html(data[0].content).addClass('shoutbox-shout-edited');
+				$('[data-sid="' + data[0].sid + '"] .ces-shout-text')
+					.html(data[0].content).addClass('ces-shout-edited');
 			},
 			onUserStatusChange: function(data) {
 				sbInstance.updateUserStatus(data.uid, data.status);
 			},
 			onStartTyping: function(data) {
-				$('[data-uid="' + data.uid + '"].shoutbox-avatar').addClass('isTyping');
+				$('[data-uid="' + data.uid + '"].ces-avatar').addClass('isTyping');
 			},
 			onStopTyping: function(data) {
-				$('[data-uid="' + data.uid + '"].shoutbox-avatar').removeClass('isTyping');
+				$('[data-uid="' + data.uid + '"].ces-avatar').removeClass('isTyping');
 			}
 		};
 
@@ -129,10 +129,10 @@
 		socket.on(event, handler);
 	};
 
-	Shoutbox.sockets = {
+	Ces.sockets = {
 		init: function(instance) {
 			return new Sockets(instance);
 		}
 	};
 
-})(window.Shoutbox);
+})(window.Ces);

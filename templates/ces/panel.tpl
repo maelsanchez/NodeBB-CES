@@ -1,27 +1,27 @@
-<div class="shoutbox" id="shoutbox-main">
+<div class="ces" id="ces-main">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">
-                <a href="/shoutbox" title="Shoutbox">Shoutbox</a>
+                <a href="/ces" title="Ces">Ces</a>
             </h3>
 
             <div class="btn-group pull-right">
-                <a href="#" class="shoutbox-button-settings dropdown-toggle" data-toggle="dropdown">
+                <a href="#" class="ces-button-settings dropdown-toggle" data-toggle="dropdown">
                     <span class="fa fa-wrench"></span>
                 </a>
-                <ul class="shoutbox-settings-menu dropdown-menu">
+                <ul class="ces-settings-menu dropdown-menu">
                     <li>
-                        <a data-shoutbox-setting="toggles.sound" href="#">
+                        <a data-ces-setting="toggles.sound" href="#">
                             <span class="fa fa-check"></span> Sound
                         </a>
                     </li>
                     <li>
-                        <a data-shoutbox-setting="toggles.notification" href="#">
+                        <a data-ces-setting="toggles.notification" href="#">
                             <span class="fa fa-check"></span> Notification
                         </a>
                     </li>
                     <li>
-                        <a data-shoutbox-setting="toggles.hide" href="#">
+                        <a data-ces-setting="toggles.hide" href="#">
                             <span class="fa fa-check"></span> Hide
                         </a>
                     </li>
@@ -30,26 +30,26 @@
         </div>
 
         <div class="panel-body" style="{hiddenStyle}">
-            <div class="shoutbox-content-container">
-                <div class="shoutbox-content-overlay">
-                    <a href="#" class="shoutbox-content-overlay-close fa fa-times"></a>
-                    <span class="shoutbox-content-overlay-message"></span>
+            <div class="ces-content-container">
+                <div class="ces-content-overlay">
+                    <a href="#" class="ces-content-overlay-close fa fa-times"></a>
+                    <span class="ces-content-overlay-message"></span>
                 </div>
-                <div class="shoutbox-content well well-sm"></div>
+                <div class="ces-content well well-sm"></div>
             </div>
 
             <div class="input-group">
-                <input type="text" placeholder="enter message" name="shoutbox-message" class="shoutbox-message-input form-control">
+                <input type="text" placeholder="enter message" name="ces-message" class="ces-message-input form-control">
                 <span class="input-group-btn">
-                    <button class="shoutbox-message-send-btn btn btn-primary" type="button">Send</button>
+                    <button class="ces-message-send-btn btn btn-primary" type="button">Send</button>
                 </span>
             </div>
 
             <!-- IF features.length -->
-            <div class="shoutbox-message-buttons">
+            <div class="ces-message-buttons">
                 <!-- BEGIN features -->
                 <!-- IF features.enabled -->
-                <button type="button" class="shoutbox-button-{features.id} btn btn-primary btn-xs">
+                <button type="button" class="ces-button-{features.id} btn btn-primary btn-xs">
                     <span class="fa {features.icon}"></span> {features.button}
                 </button>
                 <!-- ENDIF features.enabled -->

@@ -1,6 +1,6 @@
 "use strict";
 
-(function(Shoutbox) {
+(function(Ces) {
 
 	var Settings = function(instance) {
 		this.sb = instance;
@@ -26,7 +26,7 @@
 				if (settings.hasOwnProperty(key)) {
 					var value = settings[key];
 					key = prettyString(key);
-					var el = settingsMenu.find('[data-shoutbox-setting="' + key + '"] span');
+					var el = settingsMenu.find('[data-ces-setting="' + key + '"] span');
 
 					if (el.length > 0) {
 						if (parseInt(value, 10) === 1) {
@@ -79,11 +79,11 @@
 	};
 
 	function prettyString(key) {
-		return key.replace('shoutbox:', '').replace(/:/g, '.');
+		return key.replace('ces:', '').replace(/:/g, '.');
 	}
 
 	function formalString(key) {
-		return 'shoutbox:' + key.replace(/\./g, ':');
+		return 'ces:' + key.replace(/\./g, ':');
 	}
 
 	function inflate(object, startIndex, separator) {
@@ -126,16 +126,16 @@
 			}
 		}
 
-		iterate(object, ['shoutbox']);
+		iterate(object, ['ces']);
 
 		return result;
 	}
 
-	Shoutbox.settings = {
+	Ces.settings = {
 		init: function(instance) {
 			return new Settings(instance);
 		}
 	};
 
 
-})(window.Shoutbox);
+})(window.Ces);

@@ -17,13 +17,13 @@ var	NodeBB = require('./lib/nodebb'),
 
 	app,
 
-	Shoutbox = {};
+	Ces = {};
 
-Shoutbox.init = {};
-Shoutbox.widget = {};
-Shoutbox.settings = {};
+	Ces.init = {};
+	Ces.widget = {};
+	Ces.settings = {};
 
-Shoutbox.init.load = function(params, callback) {
+	Ces.init.load = function(params, callback) {
 	/*function renderGlobal(req, res, next) {
 		Config.getTemplateData(function(data) {
 			res.render(Config.plugin.id, data);
@@ -60,7 +60,7 @@ Shoutbox.init.load = function(params, callback) {
 	Config.init(callback);
 };
 
-Shoutbox.init.addGlobalNavigation = function(header, callback) {
+Ces.init.addGlobalNavigation = function(header, callback) {
 	if (Config.global.get('toggles.headerLink')) {
 		header.navigation.push({
 			class: '',
@@ -73,7 +73,7 @@ Shoutbox.init.addGlobalNavigation = function(header, callback) {
 	callback(null, header);
 };
 
-Shoutbox.init.addAdminNavigation = function(header, callback) {
+Ces.init.addAdminNavigation = function(header, callback) {
 	header.plugins.push({
 		route: '/plugins/' + Config.plugin.id,
 		icon: Config.plugin.icon,
@@ -83,14 +83,14 @@ Shoutbox.init.addAdminNavigation = function(header, callback) {
 	callback(null, header);
 };
 
-Shoutbox.init.getSounds = function(sounds, callback) {
-	sounds.push(__dirname + '/public/sounds/shoutbox-notification.mp3');
-	sounds.push(__dirname + '/public/sounds/shoutbox-wobble.mp3');
-	sounds.push(__dirname + '/public/sounds/shoutbox-cena.mp3');
+Ces.init.getSounds = function(sounds, callback) {
+	sounds.push(__dirname + '/public/sounds/ces-notification.mp3');
+	sounds.push(__dirname + '/public/sounds/ces-wobble.mp3');
+	sounds.push(__dirname + '/public/sounds/ces-cena.mp3');
 	callback(null, sounds);
 };
 
-Shoutbox.widget.define = function(widgets, callback) {
+Ces.widget.define = function(widgets, callback) {
 	widgets.push({
 		name: Config.plugin.name,
 		widget: Config.plugin.id,
@@ -101,7 +101,7 @@ Shoutbox.widget.define = function(widgets, callback) {
 	callback(null, widgets);
 };
 
-Shoutbox.widget.render = function(widget, callback) {
+Ces.widget.render = function(widget, callback) {
 	//Remove any container
 	widget.data.container = '';
 
@@ -109,7 +109,7 @@ Shoutbox.widget.render = function(widget, callback) {
 		Config.getTemplateData(function(data) {
 
 			data.hiddenStyle = '';
-			if (!err && result && result.settings && parseInt(result.settings['shoutbox:toggles:hide'], 10) == 1) {
+			if (!err && result && result.settings && parseInt(result.settings['ces:toggles:hide'], 10) == 1) {
 				data.hiddenStyle = 'display: none;';
 			}
 
@@ -118,7 +118,7 @@ Shoutbox.widget.render = function(widget, callback) {
 	});
 };
 
-Shoutbox.settings.addUserSettings = function(settings, callback) {
+Ces.settings.addUserSettings = function(settings, callback) {
 	app.render('shoutbox/user/settings', { settings: settings.settings }, function(err, html) {
 		settings.customSettings.push({
 			title: Config.plugin.name,
@@ -129,15 +129,15 @@ Shoutbox.settings.addUserSettings = function(settings, callback) {
 	});
 };
 
-Shoutbox.settings.getUserSettings = function(data, callback) {
+Ces.settings.getUserSettings = function(data, callback) {
 	Config.user.get(data, callback);
 };
 
-Shoutbox.settings.saveUserSettings = function(data) {
+Ces.settings.saveUserSettings = function(data) {
 	Config.user.save(data);
 };
 
-Shoutbox.processUpload = function(payload, callback) {
+Ces.processUpload = function(payload, callback) {
 	var id = path.basename(payload.path),
 		uploadPath = path.join(nconf.get('upload_path'), 'audio-embed', id);
 
@@ -155,4 +155,4 @@ Shoutbox.processUpload = function(payload, callback) {
 
 };
 
-module.exports = Shoutbox;
+module.exports = Ces;

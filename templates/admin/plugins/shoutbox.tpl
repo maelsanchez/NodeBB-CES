@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-lg-9">
-        <form class="form shoutbox-settings">
+        <form class="form ces-settings">
             <div class="panel panel-default">
-                <div class="panel-heading">Shoutbox</div>
+                <div class="panel-heading">Ces</div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-6">
@@ -35,7 +35,7 @@
                 <div class="panel-body">
                     <div class="features">
                         <!-- BEGIN features -->
-                        <div data-feature="{features.id}" class="shoutbox-admin-feature">
+                        <div data-feature="{features.id}" class="ces-admin-feature">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox" data-key="toggles.features.{features.id}" data-trim="false">
@@ -57,7 +57,7 @@
 
     <div class="col-lg-3">
         <div class="panel panel-default">
-            <div class="panel-heading">Shoutbox control panel</div>
+            <div class="panel-heading">Ces control panel</div>
             <div class="panel-body">
                 <button type="button" class="btn btn-primary btn-block" id="save">Save settings</button>
             </div>
@@ -68,8 +68,8 @@
             <div class="panel-body">
                 <div class="alert alert-warning">Warning: These actions are permanent and <strong>cannot</strong> be undone!</div>
 
-                <button type="button" class="btn btn-danger btn-block" id="shoutbox-remove-deleted-button">Remove deleted shouts</button>
-                <button type="button" class="btn btn-danger btn-block" id="shoutbox-remove-all-button">Remove all shouts</button>
+                <button type="button" class="btn btn-danger btn-block" id="ces-remove-deleted-button">Remove deleted shouts</button>
+                <button type="button" class="btn btn-danger btn-block" id="ces-remove-all-button">Remove all shouts</button>
             </div>
         <div
     </div>

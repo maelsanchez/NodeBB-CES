@@ -1,8 +1,8 @@
-<div class="row shoutbox-row">
+<div class="row ces-row">
     <div class="col-md-12">
-        <!-- IMPORT shoutbox/panel.tpl -->
+        <!-- IMPORT ces/panel.tpl -->
     </div>
     <div class="col-md-12 hidden">
-        <!-- IMPORT shoutbox/user/panel.tpl -->
+        <!-- IMPORT ces/user/panel.tpl -->
     </div>
 </div>

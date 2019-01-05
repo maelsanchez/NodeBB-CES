@@ -1,14 +1,14 @@
 (function() {
 	$(window).on('action:widgets.loaded', function() {
-		if ($('#shoutbox-main').length > 0) {
-			Shoutbox.init();
+		if ($('#ces-main').length > 0) {
+			Ces.init();
 		}
 	});
 	console.log('hi');
 
-	window.Shoutbox = {
+	window.Ces = {
 		init: function() {
-			Shoutbox.instances.main = Shoutbox.base.init($('#shoutbox-main'), {});
+			Ces.instances.main = Ces.base.init($('#ces-main'), {});
 		},
 		instances: {}
 	};

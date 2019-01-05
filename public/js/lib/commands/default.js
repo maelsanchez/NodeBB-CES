@@ -1,7 +1,7 @@
 /* global utils */
 "use strict";
 
-(function(Shoutbox) {
+(function(Ces) {
 	var ArgumentHandlers = {
 		username: function(argument) {
 			if (argument.indexOf('@') === 0) {
@@ -55,8 +55,8 @@
 				description: description
 			},
 			register: function(sbInstance) {
-				sbInstance.sockets.registerMessage(sound, 'plugins.shoutbox.' + sound);
-				sbInstance.sockets.registerEvent('event:shoutbox.' + sound, function() {
+				sbInstance.sockets.registerMessage(sound, 'plugins.ces.' + sound);
+				sbInstance.sockets.registerEvent('event:ces.' + sound, function() {
 					sbInstance.utils.playSound(sound);
 				});
 			},
@@ -72,8 +72,8 @@
 
 	for (var c in DefaultCommands) {
 		if (DefaultCommands.hasOwnProperty(c)) {
-			Shoutbox.commands.register(c, DefaultCommands[c]);
+			Ces.commands.register(c, DefaultCommands[c]);
 		}
 	}
 
-})(window.Shoutbox);
+})(window.Ces);

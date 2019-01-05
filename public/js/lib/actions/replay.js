@@ -1,13 +1,13 @@
 "use strict";
 /* global ajaxify, config */
 
-(function(Shoutbox) {
+(function(Ces) {
     console.log('creado');
 	var Replay = function(sbInstance) {
         console.log('config.relative_path:');
         console.log(config);
 		this.register = function() {
-            sbInstance.dom.container.find('.shoutbox-button-replay').on('click', function(e) {
+            sbInstance.dom.container.find('.ces-button-replay').on('click', function(e) {
                 $('#rfiles').click();
                 console.log('click sobre boton');
             });
@@ -28,7 +28,7 @@
             $('#rfiles').on('change', function(e) {
                 var files = (e.target || {}).files || ($(this).val() ? [{name: $(this).val(), type: utils.fileMimeType($(this).val())}] : null);
                 if (files) {
-                    uploadContentFiles({files: files, route: '/plugins/nodebb-plugin-shoutbox/upload'});
+                    uploadContentFiles({files: files, route: '/plugins/nodebb-plugin-ces/upload'});
                 }
             });
         };
@@ -188,5 +188,5 @@
 
     };
 
-	Shoutbox.actions.register('replay', Replay);
-})(window.Shoutbox);
+	Ces.actions.register('replay', Replay);
+})(window.Ces);

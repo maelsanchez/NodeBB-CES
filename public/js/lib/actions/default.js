@@ -1,11 +1,11 @@
 /* global app, utils, $ */
 "use strict";
 
-(function(Shoutbox) {
+(function(Ces) {
 	var DefaultActions = {
 		typing: function(sbInstance) {
 			this.register = function() {
-				sbInstance.dom.container.find('.shoutbox-message-input')
+				sbInstance.dom.container.find('.ces-message-input')
 					.off('keyup.typing').on('keyup.typing', handle);
 			};
 
@@ -20,8 +20,8 @@
 		overlay: function(sbInstance) {
 			this.register = function() {
 				sbInstance.dom.overlay
-					.off('click.overlay', '.shoutbox-content-overlay-close')
-					.on('click.overlay', '.shoutbox-content-overlay-close', handle);
+					.off('click.overlay', '.ces-content-overlay-close')
+					.on('click.overlay', '.ces-content-overlay-close', handle);
 			};
 
 			function handle() {
@@ -42,8 +42,8 @@
 				});
 
 				sbInstance.dom.overlay
-					.off('click.overlay', '#shoutbox-content-overlay-scrolldown')
-					.on('click.overlay', '#shoutbox-content-overlay-scrolldown', function(e) {
+					.off('click.overlay', '#ces-content-overlay-scrolldown')
+					.on('click.overlay', '#ces-content-overlay-scrolldown', function(e) {
 						shoutContent.scrollTop(
 							shoutContent[0].scrollHeight - shoutContent.height()
 						);
@@ -54,7 +54,7 @@
 			function handle() {
 				var shoutContent = sbInstance.dom.shoutsContainer,
 					shoutOverlay = sbInstance.dom.overlay,
-					scrollHeight = Shoutbox.utils.getScrollHeight(shoutContent),
+					scrollHeight = Ces.utils.getScrollHeight(shoutContent),
 
 					overlayActive = shoutOverlay.hasClass('active'),
 					pastScrollBreakpoint = scrollHeight >= sbInstance.vars.scrollBreakpoint,
@@ -98,8 +98,8 @@
 		delete: function(sbInstance) {
 			this.register = function() {
 				sbInstance.dom.container
-					.off('click.delete', '.shoutbox-shout-option-close')
-					.on('click.delete', '.shoutbox-shout-option-close', handle);
+					.off('click.delete', '.ces-shout-option-close')
+					.on('click.delete', '.ces-shout-option-close', handle);
 			};
 
 			function handle() {
@@ -122,7 +122,7 @@
 			this.register = function() {
 				function eventsOff() {
 					sbInstance.dom.shoutsContainer
-						.off('click.edit', '.shoutbox-shout-option-edit')
+						.off('click.edit', '.ces-shout-option-edit')
 						.off('dblclick.edit', '[data-sid]');
 
 					sbInstance.dom.textInput.off('keyup.edit');
@@ -130,7 +130,7 @@
 
 				function eventsOn() {
 					sbInstance.dom.shoutsContainer
-						.on('click.edit', '.shoutbox-shout-option-edit', function() {
+						.on('click.edit', '.ces-shout-option-edit', function() {
 							handle(
 								$(this).parents('[data-sid]').data('sid')
 							);
@@ -144,7 +144,7 @@
 						if (e.which === 38 && !$(this).val()) {
 							handle(
 								sbInstance.dom.shoutsContainer
-									.find('[data-uid="' + app.user.uid + '"].shoutbox-shout:last')
+									.find('[data-uid="' + app.user.uid + '"].ces-shout:last')
 									.data('sid')
 							);
 						}
@@ -222,7 +222,7 @@
 
 	for (var a in DefaultActions) {
 		if (DefaultActions.hasOwnProperty(a))
-			Shoutbox.actions.register(a, DefaultActions[a]);
+		Ces.actions.register(a, DefaultActions[a]);
 	}
 
-})(window.Shoutbox);
+})(window.Ces);

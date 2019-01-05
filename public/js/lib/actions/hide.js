@@ -1,6 +1,6 @@
 "use strict";
 
-(function(Shoutbox) {
+(function(Ces) {
 	var Hide = function(sbInstance) {
 		this.register = function() {
 			sbInstance.settings
@@ -19,5 +19,5 @@
 		}
 	};
 
-	Shoutbox.actions.register('hide', Hide);
-})(window.Shoutbox);
+	Ces.actions.register('hide', Hide);
+})(window.Ces);

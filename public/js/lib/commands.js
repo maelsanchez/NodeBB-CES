@@ -1,6 +1,6 @@
 "use strict";
 
-(function(Shoutbox) {
+(function(Ces) {
 	var regex = /^\/(\w+)\s?(.+)?/, allCommands = {};
 
 	var Commands = function(instance) {
@@ -33,7 +33,7 @@
 		}
 	};
 
-	Shoutbox.commands = {
+	Ces.commands = {
 		init: function(instance) {
 			return new Commands(instance);
 		},
@@ -45,4 +45,4 @@
 		}
 	};
 
-})(window.Shoutbox);
+})(window.Ces);

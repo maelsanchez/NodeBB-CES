@@ -1,6 +1,6 @@
 "use strict";
 
-(function(Shoutbox) {
+(function(Ces) {
 	var allActions = [];
 	
 	var Actions = function(sbInstance) {
@@ -13,7 +13,7 @@
 		}, this);
 	};
 	
-	Shoutbox.actions = {
+	Ces.actions = {
 		init: function(sbInstance) {
 			return new Actions(sbInstance);
 		},
@@ -25,4 +25,4 @@
 		}
 	};
 	
-})(window.Shoutbox);
+})(window.Ces);

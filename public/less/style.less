@@ -10,12 +10,12 @@
 @status-dnd: #f44336;
 @status-offline: #555;
 
-.shoutbox-opacity-transition {
+.ces-opacity-transition {
   opacity: 0;
   transition: opacity 0.3s, visibility 0s linear 0.3s;
 }
 
-.shoutbox-avatar {
+.ces-avatar {
   .img-circle();
   position: absolute;
   left: 0;
@@ -41,19 +41,19 @@
     border: 2px solid @status-offline;
   }
 
-  .shoutbox-avatar-image {
+  .ces-avatar-image {
     border-radius: inherit;
     width: @avatar-image-size;
     height: @avatar-image-size;
     line-height: @avatar-image-size;
   }
 
-  .shoutbox-avatar-icon {
-    .shoutbox-avatar-image;
+  .ces-avatar-icon {
+    .ces-avatar-image;
     padding: 2px;
   }
 
-  .shoutbox-avatar-overlay {
+  .ces-avatar-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -66,44 +66,44 @@
   }
 
   &.isTyping {
-    .shoutbox-avatar-overlay {
+    .ces-avatar-overlay {
       opacity: 0.6;
     }
 
-    .shoutbox-avatar-typing {
+    .ces-avatar-typing {
       opacity: 1;
     }
   }
 
-  .shoutbox-avatar-overlay, .shoutbox-avatar-typing {
-    .shoutbox-opacity-transition;
+  .ces-avatar-overlay, .ces-avatar-typing {
+    .ces-opacity-transition;
   }
 }
 
-.shoutbox-user {
+.ces-user {
   margin-top: @chain-margin;
   margin-left: @avatar-size + 5px;
   margin-bottom: 3px;
   font-size: @font-size-base;
   line-height: @font-size-base;
 
-  .shoutbox-shout-timestamp {
-    .shoutbox-opacity-transition;
+  .ces-shout-timestamp {
+    .ces-opacity-transition;
   }
 
-  &:hover .shoutbox-shout-timestamp {
+  &:hover .ces-shout-timestamp {
     opacity: 1;
   }
 }
 
-.shoutbox-shout {
+.ces-shout {
   display: flex;
   margin-left: @avatar-size + 5px;
   margin-bottom: 3px;
   font-size: @font-size-base;
   line-height: @font-size-base;
 
-  .shoutbox-shout-text {
+  .ces-shout-text {
     //flex-grow: 1;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -111,7 +111,7 @@
     hyphens: auto;
   }
 
-  .shoutbox-shout-edited p:after {
+  .ces-shout-edited p:after {
     content: "\f040";
     font: normal normal normal 14px/1 FontAwesome;
     font-size: 10px;
@@ -120,14 +120,14 @@
     margin-left: 5px;
   }
 
-  .shoutbox-shout-options {
+  .ces-shout-options {
     white-space: nowrap;
     margin-left: 5px;
-    .shoutbox-opacity-transition;
+    .ces-opacity-transition;
   }
 
   &:hover {
-    .shoutbox-shout-options, .shoutbox-shout-edited p:after {
+    .ces-shout-options, .ces-shout-edited p:after {
       opacity: 1;
     }
   }
@@ -137,7 +137,7 @@
   }
 }
 
-.shoutbox {
+.ces {
   & .panel-heading .btn-group {
     display: block;
   }
@@ -157,7 +157,7 @@
     }
   }
 
-  & .shoutbox-message-buttons {
+  & .ces-message-buttons {
     margin-top: 5px;
   }
 
@@ -165,7 +165,7 @@
     height: 300px;
   }
 
-  & .shoutbox-button-settings {
+  & .ces-button-settings {
     color: inherit;
   }
 
@@ -177,10 +177,10 @@
     margin-top: 5px;
   }
 
-  .shoutbox-content-container {
+  .ces-content-container {
     position: relative;
 
-    .shoutbox-content-overlay {
+    .ces-content-overlay {
       width: 100%;
       max-height: 100%;
       padding: 10px;
@@ -189,7 +189,7 @@
       overflow-y: auto;
       z-index: 1;
       visibility: hidden;
-      .shoutbox-opacity-transition;
+      .ces-opacity-transition;
 
       &.active {
         opacity: 0.9;
@@ -197,7 +197,7 @@
         transition-delay: 0s;
       }
 
-      .shoutbox-content-overlay-close {
+      .ces-content-overlay-close {
         float: right;
       }
     }
