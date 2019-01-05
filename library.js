@@ -47,7 +47,7 @@ Shoutbox.init.load = function(params, callback) {
 	router.get('/admin/plugins/' + Config.plugin.id, hostMiddleware.admin.buildHeader, Controllers.renderAdmin);
 	router.get('/api/admin/plugins/' + Config.plugin.id, Controllers.renderAdmin);
 	//AOM agregamos el router para el subidor de replays
-	router.post('/plugins/nodebb-plugin-shoutbox/upload', multiparty, hostMiddleware.validateFiles, hostMiddleware.applyCSRF, Controllers.upload);
+	router.post('/plugins/nodebb-plugin-ces/upload', multiparty, hostMiddleware.validateFiles, hostMiddleware.applyCSRF, Controllers.upload);
 
 	NodeBB.SocketPlugins[Config.plugin.id] = Sockets.events;
 	NodeBB.SocketAdmin[Config.plugin.id] = Config.adminSockets;
