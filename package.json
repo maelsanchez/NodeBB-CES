@@ -1,0 +1,31 @@
+{
+  "name": "nodebb-plugin-ces",
+  "version": "1.0.0",
+  "description": "NodeBB plugin for CES",
+  "main": "library.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "mkdirp": "^0.5.1",
+    "mv": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maelsanchez/NodeBB-CES.git"
+  },
+  "keywords": [
+    "ces"
+  ],
+  "author": "maelsanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maelsanchez/NodeBB-CES/issues"
+  },
+  "homepage": "https://github.com/maelsanchez/NodeBB-CES#readme"
+}
