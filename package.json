@@ -9,7 +9,8 @@
   "dependencies": {
     "async": "^2.6.1",
     "mkdirp": "^0.5.1",
-    "mv": "^2.1.1"
+    "mv": "^2.1.1",
+    "string": "^3.3.3"
   },
   "devDependencies": {},
   "scripts": {
