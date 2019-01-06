@@ -7,7 +7,7 @@ define('admin/plugins/ces', ['settings'], function(Settings) {
 	var ACP = {};
 
 	ACP.init = function() {
-		wrapper = $('.shoutbox-settings');
+		wrapper = $('.ces-settings');
 
 		Settings.sync('ces', wrapper);
 

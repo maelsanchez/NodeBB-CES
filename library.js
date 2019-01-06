@@ -113,13 +113,13 @@ Ces.widget.render = function(widget, callback) {
 				data.hiddenStyle = 'display: none;';
 			}
 
-			app.render('shoutbox/panel', data, callback);
+			app.render('ces/panel', data, callback);
 		});
 	});
 };
 
 Ces.settings.addUserSettings = function(settings, callback) {
-	app.render('shoutbox/user/settings', { settings: settings.settings }, function(err, html) {
+	app.render('ces/user/settings', { settings: settings.settings }, function(err, html) {
 		settings.customSettings.push({
 			title: Config.plugin.name,
 			content: html

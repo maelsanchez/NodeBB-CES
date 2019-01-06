@@ -1,4 +1,4 @@
-<div class="modal fade" id="ces-modal-gist" role="dialog" aria-labelledby="shoutboxModalGist" aria-hidden="true">
+<div class="modal fade" id="ces-modal-gist" role="dialog" aria-labelledby="cesModalGist" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
