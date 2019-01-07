@@ -28,7 +28,7 @@
             $('#rfiles').on('change', function(e) {
                 var files = (e.target || {}).files || ($(this).val() ? [{name: $(this).val(), type: utils.fileMimeType($(this).val())}] : null);
                 if (files) {
-                    uploadContentFiles({files: files, route: '/plugins/nodebb-plugin-ces/upload'});
+                    uploadContentFiles({files: files, route: '/api/replay/upload'});
                 }
             });
         };
