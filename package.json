@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-ces",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "NodeBB plugin for CES",
   "main": "library.js",
   "directories": {
