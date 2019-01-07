@@ -5,15 +5,14 @@ var	NodeBB = require('./lib/nodebb'),
 	Config = require('./lib/config'),
 	Sockets = require('./lib/sockets'),
 	Commands = require('./lib/commands'),
-	/*Upload = require('./lib/upload'),*/
-	Controllers = require('./lib/controllers'),
+	//Controllers = require('./lib/controllers'),
 
-	path = require('path'),
+	/*path = require('path'),
     fs = require('fs'),
     mkdirp = require('mkdirp'),
     mv = require('mv'),
     async = require('async'),
-    nconf = require.main.require('nconf'),
+    nconf = require.main.require('nconf'),*/
 
 	app,
 
@@ -23,8 +22,8 @@ var	NodeBB = require('./lib/nodebb'),
 	Ces.widget = {};
 	Ces.settings = {};
 
-	Ces.init.load = function(params, callback) {
-	/*function renderGlobal(req, res, next) {
+Ces.init.load = function(params, callback) {
+	function renderGlobal(req, res, next) {
 		Config.getTemplateData(function(data) {
 			res.render(Config.plugin.id, data);
 		});
@@ -34,21 +33,21 @@ var	NodeBB = require('./lib/nodebb'),
 		Config.getTemplateData(function(data) {
 			res.render('admin/plugins/' + Config.plugin.id, data);
 		});
-	}*/
+	}
 
 	var router = params.router,
-		hostMiddleware = params.middleware,
-		multiparty = require.main.require('connect-multiparty')();/*,
-		hostControllers = params.controllers;*/
+		hostMiddleware = params.middleware;
+		//multiparty = require.main.require('connect-multiparty')();/*,
+		//hostControllers = params.controllers;*/
 
-	router.get('/' + Config.plugin.id, hostMiddleware.buildHeader, Controllers.renderGlobal);
-	router.get('/api/' + Config.plugin.id, Controllers.renderGlobal);
+	router.get('/' + Config.plugin.id, hostMiddleware.buildHeader, renderGlobal);
+	router.get('/api/' + Config.plugin.id, renderGlobal);
 
-	router.get('/admin/plugins/' + Config.plugin.id, hostMiddleware.admin.buildHeader, Controllers.renderAdmin);
-	router.get('/api/admin/plugins/' + Config.plugin.id, Controllers.renderAdmin);
+	router.get('/admin/plugins/' + Config.plugin.id, hostMiddleware.admin.buildHeader, renderAdmin);
+	router.get('/api/admin/plugins/' + Config.plugin.id, renderAdmin);
 	//AOM agregamos el router para el subidor de replays
-	router.post('/replay/upload', multiparty, hostMiddleware.validateFiles, hostMiddleware.applyCSRF, Controllers.upload);
-	router.post('/api/replay/upload', Controllers.upload);
+	//router.post('/replay/upload', multiparty, hostMiddleware.validateFiles, hostMiddleware.applyCSRF, Controllers.upload);
+	//router.post('/api/replay/upload', Controllers.upload);
 
 	NodeBB.SocketPlugins[Config.plugin.id] = Sockets.events;
 	NodeBB.SocketAdmin[Config.plugin.id] = Config.adminSockets;
@@ -138,7 +137,7 @@ Ces.settings.saveUserSettings = function(data) {
 	Config.user.save(data);
 };
 
-Ces.processUpload = function(payload, callback) {
+/*Ces.processUpload = function(payload, callback) {
 	var id = path.basename(payload.path),
 		uploadPath = path.join(nconf.get('upload_path'), 'audio-embed', id);
 
@@ -154,6 +153,6 @@ Ces.processUpload = function(payload, callback) {
 		});
 	});
 
-};
+};*/
 
 module.exports = Ces;
